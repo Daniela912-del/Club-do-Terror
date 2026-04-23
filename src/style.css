@@ -1,0 +1,654 @@
+/* Importando fontes */
+body {
+    font-family: 'Special Elite', cursive;
+    background-color: #111;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    cursor: url('./img/caveira.png'), auto; /* Cursor personalizado */
+}
+
+/* Cabeçalho e navbar */
+header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid rgb(186, 19, 19);
+}
+
+#logo {
+    font-family: 'Creepster', cursive;
+    font-size: 2.5rem;
+    color: rgb(240, 231, 233);
+    margin: 0;
+    text-shadow: 2px 2px 8px gold;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column; /* logo em cima, menu abaixo */
+    align-items: center;
+    gap: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu a {
+    color: #eee;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: rgb(186, 19, 19);
+    text-shadow: 0 0 5px gold;
+}
+
+/* Barra de busca */
+.search-container {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.search-input {
+    padding: 5px;
+    border: 1px solid rgb(186, 19, 19);
+    background-color: #222;
+    color: #eee;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.search-btn img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1); /* deixa a lupa branca */
+}
+
+/* Conteúdo principal */
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Creepster', cursive;
+    color: rgb(186, 19, 19);
+    text-shadow: 2px 2px 5px gold;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Botão Ler Agora */
+.ler-agora {
+    background-color: rgb(186, 19, 19);
+    color: gold;
+    border: 2px solid gold;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.ler-agora:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+/* Efeito de sangue escorrendo */
+.ler-agora::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(186,19,19,0.6), transparent);
+    animation: sangue 3s infinite;
+    pointer-events: none;
+}
+@keyframes sangue {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Cards de filmes */
+.container-filmes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-filme {
+    background-color: #222;
+    padding: 15px;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    color: gold;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito VHS */
+.card-filme::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        rgba(255,255,255,0.05) 0px,
+        rgba(255,255,255,0.05) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+}
+
+.card-filme:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(186, 19, 19);
+}
+
+/* Ajuste uniforme para imagens */
+.capa-vhs {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.capa-vhs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid gold;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(186, 19, 19, 0.8);
+    transition: opacity 0.3s ease;
+}
+
+.capa-vhs img:hover {
+    opacity: 0.8;
+    filter: brightness(0.5) contrast(1.2); /* efeito apagão */
+}
+
+/* Seção de contos em grid */
+#contos {
+    background-color: #1a1a1a;
+    padding: 30px;
+    margin-top: 40px;
+    border-top: 2px solid rgb(186, 19, 19);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#contos h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contos article {
+    background-color: #222;
+    color: gold;
+    padding: 20px;
+    border-left: 4px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contos article:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(186, 19, 19);
+}
+
+/* Especial Sexta - com sobreposição escura */
+.especial-sexta {
+    background-image: url("./img/top-view-old-french-newspaper-pieces.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    position: relative;
+    color: #eee;
+}
+
+.especial-sexta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.especial-sexta h2,
+.especial-sexta p,
+.especial-sexta .container-filmes {
+    position: relative;
+    z-index: 1;
+}
+
+/* Rodapé */
+footer {
+    background-color: #000;
+    color: gold;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    border-top: 2px solid rgb(186, 19, 19);
+}
+
+/* Animação de tremor nos títulos */
+@keyframes tremor {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-1px, 1px); }
+    40% { transform: translate(-1px, -1px); }
+    60% { transform: translate(1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+    100% { transform: translate(0, 0); }
+}
+
+h2:hover, h3:hover {
+    animation: tremor 0.5s;
+}
+
+/* Ícones nos títulos dos contos */
+#contos h3::before {
+    content: "💀 ";
+    color: rgb(186, 19, 19);
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu a {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .container-filmes {
+        grid-template-columns: 1fr; /* filmes em uma coluna */
+    }
+
+    #contos {
+        grid-template-columns: 1fr; /* contos em uma coluna */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+/* Formulário macabro */
+#formulario {
+    background-color: #1a1a1a;
+    padding: 30px;
+    margin: 40px auto;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: left;
+}
+
+#formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Creepster', cursive;
+    color: rgb(186, 19, 19);
+    text-shadow: 2px 2px 5px gold;
+}
+
+#formulario label {
+    display: block;
+    margin: 10px 0 5px;
+    color: gold;
+    font-weight: bold;
+}
+
+#formulario input,
+#formulario textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 6px;
+    color: #eee;
+    font-family: 'Special Elite', cursive;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#formulario input:focus,
+#formulario textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px gold;
+    transform: scale(1.02);
+}
+
+/* Botão de envio */
+.btn-enviar {
+    background-color: rgb(186, 19, 19);
+    color: gold;
+    border: 2px solid gold;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-enviar:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(186, 19, 19);
+}
+
+/* Efeito de sangue escorrendo no botão */
+.btn-enviar::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(186,19,19,0.6), transparent);
+    animation: sangue 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes sangue {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu a {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .container-filmes {
+        grid-template-columns: 1fr; /* filmes em uma coluna */
+    }
+
+    #contos {
+        grid-template-columns: 1fr; /* contos em uma coluna */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+} /* <-- fecha aqui a media query */
+
+/* Formulário macabro */
+#formulario {
+    background-color: #1a1a1a;
+    padding: 30px;
+    margin: 40px auto;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: left;
+}
+
+#formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Creepster', cursive;
+    color: rgb(186, 19, 19);
+    text-shadow: 2px 2px 5px gold;
+}
+
+#formulario label {
+    display: block;
+    margin: 10px 0 5px;
+    color: gold;
+    font-weight: bold;
+}
+
+#formulario input,
+#formulario textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 6px;
+    color: #eee;
+    font-family: 'Special Elite', cursive;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#formulario input:focus,
+#formulario textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px gold;
+    transform: scale(1.02);
+}
+
+/* Botão de envio */
+.btn-enviar {
+    background-color: rgb(186, 19, 19);
+    color: gold;
+    border: 2px solid gold;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-enviar:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(186, 19, 19);
+}
+
+/* Efeito de sangue escorrendo no botão */
+.btn-enviar::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(186,19,19,0.6), transparent);
+    animation: sangue 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes sangue {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+}
+/* Ajustes para telas pequenas */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu a {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .search-input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .container-filmes {
+        grid-template-columns: 1fr; /* filmes em uma coluna */
+    }
+
+    #contos {
+        grid-template-columns: 1fr; /* contos em uma coluna */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+} 
+/* Formulário macabro */
+#formulario {
+    background-color: #1a1a1a;
+    padding: 30px;
+    margin: 40px auto;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: left;
+}
+
+#formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Creepster', cursive;
+    color: rgb(186, 19, 19);
+    text-shadow: 2px 2px 5px gold;
+}
+
+#formulario label {
+    display: block;
+    margin: 10px 0 5px;
+    color: gold;
+    font-weight: bold;
+}
+
+#formulario input,
+#formulario textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border: 2px solid rgb(186, 19, 19);
+    border-radius: 6px;
+    color: #eee;
+    font-family: 'Special Elite', cursive;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#formulario input:focus,
+#formulario textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px gold;
+    transform: scale(1.02);
+}
+
+/* Botão de envio */
+.btn-enviar {
+    background-color: rgb(186, 19, 19);
+    color: gold;
+    border: 2px solid gold;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-enviar:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(186, 19, 19);
+}
+
+/* Efeito de sangue escorrendo no botão */
+.btn-enviar::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(186,19,19,0.6), transparent);
+    animation: sangue 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes sangue {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
