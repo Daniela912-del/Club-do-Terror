@@ -6,7 +6,6 @@ Este projeto reúne histórias, imagens e códigos relacionados ao gênero de te
 
 ## Estrutura do projeto
 - `src/` → código-fonte principal
-- `img/` → imagens e recursos visuais
 - `README.md` → documentação inicial
 
 ## Objetivo
